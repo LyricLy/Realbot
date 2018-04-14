@@ -53,6 +53,7 @@ class Load:
     async def restart(self, ctx):
         """Restart the bot."""
         await ctx.send("Restarting...")
+        print("Restarting...")
         os.system("python3.6 run.py")
 
 def setup(bot):
