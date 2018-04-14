@@ -33,7 +33,7 @@ class Moderation:
                 await found_member.send("You have been kicked by user {0.name}#{0.discriminator}.".format(ctx.author))
             except discord.errors.Forbidden:
                 pass
-            await found_member.ban()
+            await found_member.kick(reason=reason if reason else None)
             await ctx.send("Successfully kicked user {0.name}#{0.discriminator}!".format(found_member))
     
     @commands.has_permissions(ban_members=True)    
@@ -52,7 +52,7 @@ class Moderation:
                 await found_member.send("You have been banned by user {0.name}#{0.discriminator}.".format(ctx.author))
             except discord.errors.Forbidden:
                 pass
-            await found_member.ban()
+            await found_member.ban(delete_message_days=0, reason=reason if reason else None)
             await ctx.send("Successfully banned user {0.name}#{0.discriminator}!".format(found_member))
 
 def setup(bot):
