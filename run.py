@@ -58,6 +58,9 @@ async def on_error(event_method, *args, **kwargs):
 
 addons = [
     'cogs.slowmode',
+    'cogs.load',
+    'cogs.mod',
+    'cogs.update'
 ]
 
 failed_addons = []
