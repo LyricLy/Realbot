@@ -27,6 +27,9 @@ bot.escape_trans = str.maketrans({
 # mostly taken from https://github.com/Rapptz/discord.py/blob/async/discord/ext/commands/bot.py
 @bot.event
 async def on_command_error(ctx, error):
+    error = getattr(error, 'original', error)
+    if hasattr(ctx.command, 'on_error') or hasattr(ctx.cog, '_{0.__class__.__name__}__error'.format(ctx.cog)):
+        return
     if isinstance(error, discord.ext.commands.errors.CommandNotFound):
         pass  # ...don't need to know if commands don't exist
     elif isinstance(error, discord.ext.commands.errors.CheckFailure):
