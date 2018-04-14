@@ -53,7 +53,7 @@ class Load:
     async def restart(self, ctx):
         """Restart the bot."""
         await ctx.send("Restarting...")
-        os.system("run.py")
+        os.system("python3.6 run.py")
 
 def setup(bot):
     bot.add_cog(Load(bot))
