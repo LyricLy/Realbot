@@ -8,7 +8,7 @@ class Update:
         self.bot = bot
         self.git = git.cmd.Git(".")
 
-    async def on_message(message):
+    async def on_message(self, message):
         if message.channel == self.bot.update_channel:
             print("Pulling changes!")
             self.git.pull()
