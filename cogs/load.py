@@ -54,7 +54,7 @@ class Load:
         """Restart the bot."""
         await ctx.send("Restarting...")
         print("Restarting...")
-        os.system("python3.6 run.py")
+        sys.exit(0)
 
 def setup(bot):
     bot.add_cog(Load(bot))
